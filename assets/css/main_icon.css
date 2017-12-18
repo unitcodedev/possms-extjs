@@ -1,0 +1,325 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2014, 6:24:01 PM
+    Author     : Isht.Ae
+*/
+
+@font-face {
+  font-family : 'FontAwesome';
+  src         : url('../font-awesome/fonts/fontawesome-webfont.eot?32940503');
+  src         : url('../font-awesome/fonts/fontawesome-webfont.eot?32940503#iefix') format('embedded-opentype'),
+                url('../font-awesome/fonts/fontawesome-webfont.woff?32940503') format('woff'),
+                url('../font-awesome/fonts/fontawesome-webfont.ttf?32940503') format('truetype'),
+                url('../font-awesome/fonts/fontawesome-webfont.svg?32940503#FontAwesome') format('svg');
+  font-weight : normal;
+  font-style  : normal;
+}
+
+/*ICON CSS*/
+.icon-panel-anggaran {
+    background: url('../img/app/icon/icon-panel-anggaran.png') no-repeat;
+}
+
+.icon-panel-bank {
+    background: url('../img/app/icon/icon-panel-bank.png') no-repeat;
+}
+
+.icon-panel-kas {
+    background: url('../img/app/icon/icon-panel-kas.png') no-repeat;
+}
+
+.icon-panel-akun {
+    background: url('../img/app/icon/icon-panel-akun.png') no-repeat;
+}
+
+.icon-panel-gudang {
+    background: url('../img/app/icon/icon-panel-gudang.png') no-repeat;
+}
+
+.icon-panel-divisi {
+    background: url('../img/app/icon/icon-panel-divisi.png') no-repeat;
+}
+
+.icon-panel-inventaris {
+    background: url('../img/app/icon/icon-panel-inventaris.png') no-repeat;
+}
+
+.icon-panel-setting {
+    background: url('../img/app/icon/icon-panel-setting.png') no-repeat;
+}
+
+.icon-login-window {
+    background: url('../img/app/icon/icon-login-window.png') no-repeat;
+}
+
+.icon-new {
+    background: url('../img/app/icon/icon-new.png') no-repeat;
+}
+
+.icon-save {
+    background: url('../img/app/icon/icon-save.png') no-repeat;
+}
+
+.icon-cancel {
+    background: url('../img/app/icon/icon-cancel.png') no-repeat;
+}
+
+.icon-delete {
+    background: url('../img/app/icon/icon-delete.png') no-repeat;
+}
+
+.icon-edit {
+    background: url('../img/app/icon/icon-edit.png') no-repeat;
+}
+
+.icon-print {
+    background: url('../img/app/icon/icon-print.png') no-repeat;
+}
+
+.icon-bayar {
+    background: url('../img/app/icon/icon-bayar.png') no-repeat;
+}
+
+.icon-refresh {
+    background: url('../img/app/icon/icon-refresh.png') no-repeat;
+}
+
+.icon-user {
+    background: url('../img/app/icon/icon-user.png') no-repeat;
+}
+
+.icon-profile {
+    background: url('../img/app/icon/icon-profile.png') no-repeat;
+}
+
+.icon-about {
+    background: url('../img/app/icon/icon-about.png') no-repeat;
+}
+
+.icon-help {
+    background: url('../img/app/icon/icon-help.png') no-repeat;
+}
+
+.icon-logout {
+    background: url('../img/app/icon/icon-logout.png') no-repeat;
+}
+
+.icon-detail {
+    background: url('../img/app/icon/icon-detail.png') no-repeat;
+}
+
+.icon-hasillab {
+    background: url('../img/app/icon/icon-hasillab.png') no-repeat;
+}
+
+.icon-list {
+    background: url('../img/app/icon/icon-list.png') no-repeat;
+}
+
+.icon-indent {
+    background: url('../img/app/icon/icon-indent.png') no-repeat;
+}
+
+.icon-kontrak {
+    background: url('../img/app/icon/icon-kontrak.png') no-repeat;
+}
+
+.icon-telusur {
+    background: url('../img/app/icon/icon-telusur.png') no-repeat;
+}
+
+.icon-cari {
+    background: url('../img/app/icon/icon-cari.png') no-repeat;
+}
+
+.icon-check {
+    background: url('../img/app/icon/icon-check.png') no-repeat;
+}
+
+.icon-clear {
+    background: url('../img/app/icon/icon-clear.png') no-repeat;
+}
+
+.icon-pdf {
+    background: url('../img/app/icon/icon-pdf.png') no-repeat;
+}
+
+/*ICON-TREE*/
+
+.icon-tree-parent {
+    background: url('../img/app/icon/icon-tree-parent.png') no-repeat;
+    margin: 0px 0px -7px 0px;
+}
+
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+    /*background: url('../img/app/icon/icon-tree-parent.png') no-repeat;
+    margin: 0px 0px -7px 0px;*/
+}
+
+.icon-master-barang {
+    background: url('../img/app/icon/icon-master-barang.png') no-repeat;
+}
+
+.icon-master-supplier {
+    background: url('../img/app/icon/icon-master-supplier.png') no-repeat;
+}
+
+.icon-pengadaan-pusat {
+    background: url('../img/app/icon/icon-pengadaan-pusat.png') no-repeat;
+}
+
+.icon-po {
+    background: url('../img/app/icon/icon-po.png') no-repeat;
+}
+
+.icon-terima-barang {
+    background: url('../img/app/icon/icon-terima-barang.png') no-repeat;
+}
+
+.icon-tukar-faktur {
+    background: url('../img/app/icon/icon-tukar-faktur.png') no-repeat;
+}
+
+.icon-cek-faktur {
+    background: url('../img/app/icon/icon-cek-faktur.png') no-repeat;
+}
+
+.icon-stok-opname {
+    background: url('../img/app/icon/icon-stok-opname.png') no-repeat;
+}
+
+.icon-arus-stock {
+    background: url('../img/app/icon/icon-arus-stock.png') no-repeat;
+}
+
+.icon-safety-stock {
+    background: url('../img/app/icon/icon-safety-stock.png') no-repeat;
+}
+
+.icon-barang-keluar-pusat {
+    background: url('../img/app/icon/icon-barang-keluar-pusat.png') no-repeat;
+}
+
+.icon-pengadaan-pusat {
+    background: url('../img/app/icon/icon-pengadaan-pusat.png') no-repeat;
+}
+
+.icon-stok-opname {
+    background: url('../img/app/icon/icon-stok-opname.png') no-repeat;
+}
+
+.icon-barang-keluar-pusat {
+    background: url('../img/app/icon/icon-barang-keluar-pusat.png') no-repeat;
+}
+
+.icon-master-bank {
+    background: url('../img/app/icon/icon-master-bank.png') no-repeat;
+}
+
+.icon-rencana-anggaran {
+    background: url('../img/app/icon/icon-rencana-anggaran.png') no-repeat;
+}
+
+.icon-anggaran {
+    background: url('../img/app/icon/icon-anggaran.png') no-repeat;
+}
+
+.icon-bank-masuk {
+    background: url('../img/app/icon/icon-bank-masuk.png') no-repeat;
+}
+
+.icon-bank-keluar {
+    background: url('../img/app/icon/icon-bank-keluar.png') no-repeat;
+}
+
+.icon-rekening-koran {
+    background: url('../img/app/icon/icon-rekening-koran.png') no-repeat;
+}
+
+.icon-kas-divisi {
+    background: url('../img/app/icon/icon-kas-divisi.png') no-repeat;
+}
+
+.icon-kas-masuk {
+    background: url('../img/app/icon/icon-kas-masuk.png') no-repeat;
+}
+
+.icon-kas-keluar {
+    background: url('../img/app/icon/icon-kas-keluar.png') no-repeat;
+}
+
+.icon-hitung-kasbon {
+    background: url('../img/app/icon/icon-hitung-kasbon.png') no-repeat;
+}
+
+.icon-jurnal-umum {
+    background: url('../img/app/icon/icon-jurnal-umum.png') no-repeat;
+}
+
+.icon-buku-besar {
+    background: url('../img/app/icon/icon-buku-besar.png') no-repeat;
+}
+
+.icon-jurnal-harian {
+    background: url('../img/app/icon/icon-jurnal-harian.png') no-repeat;
+}
+
+.icon-master-akun {
+    background: url('../img/app/icon/icon-master-akun.png') no-repeat;
+}
+
+.icon-master-telisa {
+    background: url('../img/app/icon/icon-master-telisa.png') no-repeat;
+}
+
+.icon-barang-keluar {
+    background: url('../img/app/icon/icon-barang-keluar.png') no-repeat;
+}
+
+.icon-barang-masuk {
+    background: url('../img/app/icon/icon-barang-masuk.png') no-repeat;
+}
+
+.icon-barang-terima {
+    background: url('../img/app/icon/icon-barang-terima.png') no-repeat;
+}
+
+.icon-list-keluar {
+    background: url('../img/app/icon/icon-list-keluar.png') no-repeat;
+}
+
+.icon-check-stock {
+    background: url('../img/app/icon/icon-check-stock.png') no-repeat;
+}
+
+.icon-app-conf {
+    background: url('../img/app/icon/icon-app-conf.png') no-repeat;
+}
+
+.icon-menu-conf {
+    background: url('../img/app/icon/icon-menu-conf.png') no-repeat;
+}
+
+.icon-attr-conf {
+    background: url('../img/app/icon/icon-attr-conf.png') no-repeat;
+}
+
+.x-message-box-error {
+    background: url('../img/app/icon-error.gif') no-repeat !important;
+}
+
+.x-message-box-info {
+    background: url('../img/app/icon-info.gif') no-repeat !important;
+}
+
+.x-message-box-warning {
+    background: url('../img/app/icon-warning.gif') no-repeat !important;
+}
+
+.x-message-box-question {
+    background: url('../img/app/icon-question.gif') no-repeat !important;
+}

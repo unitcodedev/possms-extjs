@@ -1,0 +1,23 @@
+/*@media print{thead{display:table-header-group;}}*/
+/*@media print{thead{display:table-header-group; margin-bottom:10px;}}*/
+/*@page{margin-top:50cm;margin-left:1cm;margin-right:1cm;margin-bottom:1.5cm;}*/
+/*table#invoice-amount td, table#invoice-amount th, div{border-width:0.05mm !important}*/
+@media print{
+    thead {
+        display:table-header-group; 
+        margin-top: 100px;
+    }
+    tfoot {
+        display: none; 
+        /*display: table-footer-group;*/ 
+    }
+}
+@page{
+    margin-top:1cm;
+    margin-left:1cm;
+    margin-right:1cm;
+    margin-bottom:1cm;
+}
+.section_footer {
+    display: none;
+}

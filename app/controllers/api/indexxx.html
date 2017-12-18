@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>PDC :: API Overview</title>
+
+        <style type="text/css">
+
+            ::selection{ background-color: #E13300; color: white; }
+            ::moz-selection{ background-color: #E13300; color: white; }
+            ::webkit-selection{ background-color: #E13300; color: white; }
+
+            body {
+                background-color: #fff;
+                margin: 40px;
+                font: 13px/20px normal Helvetica, Arial, sans-serif;
+                color: #4F5155;
+            }
+
+            a {
+                color: #003399;
+                background-color: transparent;
+                font-weight: normal;
+            }
+
+            h1 {
+                color: #444;
+                background-color: transparent;
+                border-bottom: 1px solid #D0D0D0;
+                font-size: 19px;
+                font-weight: normal;
+                margin: 0 0 14px 0;
+                padding: 14px 15px 10px 15px;
+            }
+
+            code {
+                font-family: Consolas, Monaco, Courier New, Courier, monospace;
+                font-size: 12px;
+                background-color: #f9f9f9;
+                border: 1px solid #D0D0D0;
+                color: #002166;
+                display: block;
+                margin: 5px 0 5px 0;
+                padding: 2px 10px;
+            }
+
+            #body{
+                margin: 0 15px 0 15px;
+            }
+
+            p.footer{
+                text-align: right;
+                font-size: 11px;
+                border-top: 1px solid #D0D0D0;
+                line-height: 32px;
+                padding: 0 10px 0 10px;
+                margin: 20px 0 0 0;
+            }
+
+            #container{
+                margin: 10px;
+                padding: 0px 0px 20px 0px;
+                border: 1px solid #D0D0D0;
+                -webkit-box-shadow: 0 0 8px #D0D0D0;
+                -moz-box-shadow: 0 0 8px #D0D0D0;
+            }
+
+            ul.function-list li {
+                margin: 0px 0px 15px 0px;
+                padding: 0px 0px 0px 5px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="container">
+            <h1 style="font-weight: bold">PDC API Overview</h1>
+
+            <div id="body">
+                <h2>A. Summary</h2>
+                <p>API default returning data format is json. To change format use <i>format=xxx</i>.</p>
+                <code><?php echo base_url(); ?>data/users?limit=2&amp;format=xml</code>
+                <p>json result :</p>
+                <code>{"succes":true,"count":2,"data":[
+                    {"id":"1","username":"admin","password":"$2y$08$AgB5lMUA1XGtmTo54A0snu0f1H\/oly3LK5VV1.T8szBimmw4E62Va","last_login":"1421907559","first_name":"SUPER","last_name":"ADMIN"},
+                    {"id":"2","username":"10002","password":"$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36","last_login":"1414743694","first_name":"ENNY SOETJI INDRIASTUTI","last_name":""}]}</code>
+                <p>Available format :</p>
+                <code>
+                    <ul style="padding:0px; margin: 0px 0px 0px 15px">
+                        <li>json (default)</li>
+                        <li>xml</li>
+                        <li>csv</li>
+                        <li>php</li>
+                        <li>serialize</li>
+                    </ul>
+                </code>
+                <br/>
+                <h2>B. Usage</h2>
+                <ul class="function-list">
+                    <li>
+                        Basic usage
+                        <code><?php echo base_url(); ?>data/users <span style="color: #aaa">//Get all data</span></code>
+                        <code><?php echo base_url(); ?>data/user?id=1 <span style="color: #aaa">//Detail for single data</span></code>
+                    </li>
+                    <li>
+                        Usage with limit
+                        <code><?php echo base_url(); ?>data/users?limit=xxx</code>
+                        <i>xxx</i> is count of limit.
+                    </li>
+                    <li>
+                        Usage with sort
+                        <code><?php echo base_url(); ?>data/users?limit=3&amp;sort=[{"property":"id","dir":"asc"}]&amp;format=json</code>
+                        <i>property</i> is field name for sort. <i>dir</i> is direction for sorting, <b>asc</b> or <b>desc</b>.
+                    </li>
+                    <li>
+                        Usage with filter
+                        <code><?php echo base_url(); ?>data/users?filter=[{"property":"first_name","value":"super","param":"like"}]&amp;format=json <span style="color: #aaa">//1 filter property</span></code>
+                        <code><?php echo base_url(); ?>data/users?filter=[{"property":"first_name","value":"super","param":"like"},{"property":"first_name","value":"joko","param":"or_like"}]&amp;format=json <span style="color: #aaa">//2 filter properties</span></code>
+                        <i>property</i> is field name.<br/>
+                        <i>value</i> is field value.<br/>
+                        <i>param</i> is SQL Where statements. If not written, use default "where <b><i>property</i></b> = <b><i>value</i></b>". Other param <i>like</i>, <i>or_like</i>, <i>not_like</i>, <i>or_where</i>, <i>having</i><br/>
+                        <i>operator</i> is operator value. If not written, use default "where <i>property</i> <b style="color:red">=</b> <i>value</i>".
+                    </li>
+                </ul>
+                <h2 style="margin:35px 0px 0px 0px">C. Data List</h2>
+                <div style="padding: 0px 0px 0px 25px">
+                    <h3>1. Users Data</h3>
+                    <ul class="function-list">
+                        <li>
+                            All Users
+                            <code><?php echo base_url(); ?>data/users</code>
+                        </li>
+                        <li>
+                            Single User
+                            <code><?php echo base_url(); ?>data/user?id=xxx</code>
+                            <i>xxx</i> user id.
+                        </li>
+                    </ul>
+                    <h3>2. Doctors Data</h3>
+                    <ul class="function-list">
+                        <li>
+                            All Doctors
+                            <code><?php echo base_url(); ?>data/doctors</code>
+                        </li>
+                        <li>
+                            Single Doctor
+                            <code><?php echo base_url(); ?>data/doctor?id=xxx</code>
+                            <i>xxx</i> doctor id.
+                        </li>
+                    </ul>
+                    <h3>3. Omzet Data</h3>
+                    <ul class="function-list">
+                        <li>
+                            Top 5 Doctors omzet
+                            <code><?php echo base_url(); ?>data/omzets</code>
+                        </li>
+                    </ul>
+                    <ul class="function-list">
+                        <li>
+                            Top 5 Doctors omzet Marketing
+                            <code><?php echo base_url(); ?>data/omzet?id=xxx</code>
+                        </li>
+                    </ul>
+                    <h3>4. Visits Data</h3>
+                    <ul class="function-list">
+                        <li>
+                            Top 5 Doctors visits
+                            <code><?php echo base_url(); ?>data/visits</code>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

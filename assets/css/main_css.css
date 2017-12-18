@@ -1,0 +1,263 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2014, 6:24:01 PM
+    Author     : Isht.Ae
+*/
+
+@font-face {
+    font-family: 'proba_proregular';
+    src: url('ProbaPro-Regular-webfont.eot');
+    src: url('ProbaPro-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('ProbaPro-Regular-webfont.woff') format('woff'),
+        url('ProbaPro-Regular-webfont.ttf') format('truetype'),
+        url('ProbaPro-Regular-webfont.svg#proba_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ambleregular';
+    src: url('Amble-Regular-webfont.eot');
+    src: url('Amble-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('Amble-Regular-webfont.woff') format('woff'),
+        url('Amble-Regular-webfont.ttf') format('truetype'),
+        url('Amble-Regular-webfont.svg#ambleregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body, html {
+    background: #FFF;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    //*padding: 12px 0px 6px 5px;*/
+    border: none !important;
+    border-bottom:  5px solid #0081b7 !important;
+
+    background: #60b5da; /* Old browsers */
+    background: -moz-linear-gradient(top,  #60b5da 0%, #0081b7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#60b5da), color-stop(100%,#0081b7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #60b5da 0%,#0081b7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60b5da', endColorstr='#0081b7',GradientType=0 ); /* IE6-9 */
+}
+
+.img-header {
+    float: left;
+    height: 32px;
+    padding: 0px 0px;
+    margin: 4px 5px;
+}
+
+.cabang-display {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 11px 0px 0px 15px;
+}
+
+.imagefieldthumb {
+    border-radius: 50%;
+    border: 5px solid #c4c4d6;
+    /*width: 170px;*/
+    margin: 5px 0 0 0;
+    height: 85px;
+    background: #f2f2f2;
+}
+
+.x-grid-group-title {
+    font-weight: bold;
+    color: #1979CA;
+}
+
+.x-ticker-wrap {
+    overflow: hidden;
+}
+
+.x-ticker-messageclick {
+    cursor: pointer;
+}
+/*PENGADAAN COLOR*/
+
+.peng-null .x-grid-cell {
+    background-color: #FF0000;
+    color: #FFF;
+}
+
+.peng-div .x-grid-cell {
+    background-color: #0000FF;
+    color: #FFF;
+}
+
+.peng-pusat .x-grid-cell {
+    background-color: #CE7F00;
+    color: #FFF;
+}
+
+.peng-pobag .x-grid-cell {
+    background-color: #48FF00;
+    color: #000;
+}
+
+.peng-poall .x-grid-cell {
+    background-color: #FEFEFE;
+    color: #000;
+}
+
+.peng-grey .x-grid-cell {
+    background-color: grey;
+    color: #FFF;
+}
+
+/*PO COLOR*/
+
+.peng_po .x-grid-cell {
+    background-color: #FF0000;
+    color: #FFF;
+}
+
+.peng_po .x-grid-header {
+    background-color: #FF0000;
+    color: #FFF;
+}
+
+.x-form-new-trigger {
+    background: url('../img/app/trigger-new.gif') no-repeat;
+}
+
+.x-panel-header-default {
+    background-image: none;
+
+    background: #60b5da; /* Old browsers */
+    background: -moz-linear-gradient(top,  #60b5da 0%, #0081b7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#60b5da), color-stop(100%,#0081b7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #60b5da 0%,#0081b7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60b5da', endColorstr='#0081b7',GradientType=0 ); /* IE6-9 */
+
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+.daftar-total-view {
+    color: blue;
+    padding: 5px 0px 0px 0px;
+    font-size: 50px !important;
+}
+.daftar-hasil-nama {
+    padding: 3px 0px 0px 0px;
+    font-size: 14px !important;
+}
+.daftar-hasil-verifikasi {
+    background-color: #8F47C2;
+    /*background-color: #ECB75B;*/
+    padding: 3px 0px 0px 0px;
+    font-size: 12px !important;
+}
+
+.x-panel-header {
+    background-image: none;
+
+    background: #60b5da; /* Old browsers */
+    background: -moz-linear-gradient(top,  #60b5da 0%, #0081b7 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#60b5da), color-stop(100%,#0081b7)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #60b5da 0%,#0081b7 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #60b5da 0%,#0081b7 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#60b5da', endColorstr='#0081b7',GradientType=0 ); /* IE6-9 */
+
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+.x-panel-header-text {
+    color: #FFF;
+}
+
+/*label,
+.x-body,
+.x-panel-header-text-default,
+.x-form-item-label,
+.x-form-text,
+.x-grid-cell,
+.x-toolbar-default,
+.x-column-header,
+.x-window-header-text,
+.x-toolbar .x-form-item-label,
+.x-toolbar-text,
+.x-tab-button .x-tab-inner,
+.x-btn-default-small .x-btn-inner,
+.x-panel-body {
+    font-family: proba_proregular;
+    font-size: 12px;
+}
+
+.x-window-header-text,
+.x-tab-button .x-tab-inner {
+    font-size: 11px;
+}*/
+
+.xticker {
+    float: left;
+    margin: 2px 0px 0px 0px;
+}
+
+.ticker-error {
+    color:#FFF;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin: 0px 5px 0px 10px;
+    background-color: #FA5858;
+}
+
+.ticker-info {
+    color:#FFF;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin: 0px 5px 0px 10px;
+    background-color: #58D3F7;
+}
+
+.ticker-warning {
+    color:#FFF;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin: 0px 5px 0px 10px;
+    background-color: #F7D358;
+}
+
+.status-error .x-grid-cell {
+    background-color: #FA5858;
+}
+
+.status-info .x-grid-cell {
+    background-color: #58D3F7;
+}
+
+.status-warning .x-grid-cell {
+    background-color: #F7D358;
+}
+
+.status-question .x-grid-cell {
+    background-color: #58FA82;
+}

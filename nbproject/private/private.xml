@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>assets/js/app/view/labdistribusisample/LabRujukanSampleForm.js</url>
+            <bookmark id="1">
+                <name/>
+                <line>200</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="PARAHITA">
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/plyverifikasisample/GetPlyVerifikasiSample.js</file>
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/plyverifikasisample/PlyPencatatanSampleForm.js</file>
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/plyverifikasisample/PlyVerifikasiSampleGrid.js</file>
+            <file>file:/E:/wamp/www/lab/app/controllers/plyverifikasisample.php</file>
+            <file>file:/E:/wamp/www/lab/app/controllers/hsdanstatushasil.php</file>
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/hsdanstatushasil/ListStatusHasilDiambilPasienGrid.js</file>
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/deltacek/GetDeltaCek.js</file>
+            <file>file:/E:/wamp/www/lab/assets/js/app/view/deltacek/InputDetailHasilDeltaCekGrid.js</file>
+            <file>file:/E:/wamp/www/lab/app/controllers/labdistribusisample.php</file>
+            <file>file:/E:/wamp/www/lab/app/config/database.php</file>
+            <file>file:/E:/wamp/www/lab/app/controllers/pendaftaran.php</file>
+            <file>file:/E:/wamp/www/lab/app/controllers/import_pasien.php</file>
+        </group>
+        <group>
+            <file>file:/E:/wamp/www/sido/assets/js/app/controller/GetLaporanPiutang.js</file>
+            <file>file:/E:/wamp/www/sido/assets/js/app/controller/GetLaporanHutang.js</file>
+            <file>file:/E:/wamp/www/sido/app/controllers/Shared.php</file>
+            <file>file:/E:/wamp/www/sido/assets/js/app/view/fopendaftaran/FoPendaftaranGrid.js</file>
+            <file>file:/E:/wamp/www/sido/app/controllers/Pendaftaran.php</file>
+            <file>file:/E:/wamp/www/sido/app/controllers/Api_Mikrotik.php</file>
+            <file>file:/E:/wamp/www/sido/assets/js/app/controller/GetPenerimaanKas.js</file>
+            <file>file:/E:/wamp/www/sido/assets/js/app/controller/GetBarangMasuk.js</file>
+        </group>
+    </open-files>
+</project-private>

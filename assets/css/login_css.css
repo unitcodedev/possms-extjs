@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2014, 6:24:01 PM
+    Author     : Isht.Ae
+*/
+
+body, html {
+    /*background:url(../images/bg.jpg) no-repeat center top #310b28;
+    background:url(../images/bg.jpg) no-repeat center top #FFFFFF;*/
+    background-image: url('../img/background.jpg');
+/*    background-image: url('../img/app/grid2.png');*/
+/*        url(http://imediapixel.com/demo/ecobiz/wp-content/themes/ecobiz_demo/images/pattern/grid2.png);*/
+    background-color: rgb(16, 69, 148);
+    font-family:Arial, Helvetica, sans-serif;
+    padding:0;
+    /*font-size:12px;*/
+    font-size:14px;
+    margin:0 auto;
+    color: #0e4354;
+    /*    background: #8FC400 url('../img/app/login_bg.jpg') center 100%;*/
+}
+
+.x-panel-body {
+    font-family: Consolas;
+    font-size: 11px;
+/*    background: url('../img/app/login-box-backg.png') no-repeat left top;*/
+/*    color: #FFF;*/
+}
+
+.x-panel-header-text-default,
+.x-panel-header-text-default-framed {
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #FFF;
+}
+
+div.status-error {
+    color: #F00;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/icon-delete.png') no-repeat;    
+}
+
+div.status-info {
+    color: #0018BA;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/loading.gif') no-repeat;    
+}
+
+div.status-ready {
+    color: green;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/icon-check.png') no-repeat;
+}
+
+h3.header-title {
+    margin: 10px 0px 10px -5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #0088C1;
+    text-align: center;
+    text-shadow: 0 1px white;
+}
+
+//ICON

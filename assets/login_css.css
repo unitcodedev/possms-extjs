@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 16, 2014, 6:24:01 PM
+    Author     : Isht.Ae
+*/
+
+body, html {
+    background: #8FC400 url('../img/app/login_bg.jpg') center 100%;
+}
+
+.x-panel-body {
+    font-family: Consolas;
+    font-size: 11px;
+    color: #FFF;
+}
+
+.x-panel-header-text-default,
+.x-panel-header-text-default-framed {
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #FFF;
+}
+
+div.status-error {
+    color: #F00;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/icon-delete.png') no-repeat;    
+}
+
+div.status-info {
+    color: #0018BA;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/loading.gif') no-repeat;    
+}
+
+div.status-ready {
+    color: green;
+    padding: 0px 0px 0px 20px;
+    background: url('../img/app/icon/icon-check.png') no-repeat;
+}
+
+h3.header-title {
+    margin: 10px 0px 10px -5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #0088C1;
+    text-align: center;
+    text-shadow: 0 1px white;
+}
+
+//ICON
