@@ -1,13 +1,13 @@
-Ext.define('SIForLaP.controller.GetBrand', {
+Ext.define('SIForLaP.controller.GetMsBrand', {
     extend: 'Ext.app.Controller',
     models: [
     ],
     stores: [
-        'ms_brand.s_brand',
+        'msbrand.MsBrandStore',
     ],
     views: [
-        'v_brand.GetBrand',
-        'v_brand.brandGrid',
+        'msbrand.GetMsBrand',
+        'msbrand.MsBrandGrid',
     ],
     refs: [
     ],
