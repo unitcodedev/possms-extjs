@@ -8,7 +8,7 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
     itemId: 'mskendaraangrid',
     ui: 'blue-panel',
     autoScroll: true,
-    cls: 'grid_penjualan',
+    cls: 'grid_kendaraan',
     store: 'mskendaraan.MsKendaraanStore',
     columnLines: true,
 //    forceFit: true,
@@ -41,25 +41,25 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                             value: '0',
                             fieldLabel: '<b>ID</b>',
                             margin: '0 0 2 10',
-                            itemId: 'MsKendaraanIDSeq',
+                            itemId: 'tx_idKendaraan',
                         },
                         {
                             xtype: 'textfield',
                             width: 150,
                             labelWidth: 70,
                             readOnly: true,
-                            fieldLabel: '<b>No. Polisi</b>',
+                            fieldLabel: '<b>KODE</b>',
                             margin: '0 0 2 10',
-                            itemId: 'MsKendaraanID',
+                            itemId: 'tx_kodeKendaraan',
                         },
                         {
                             xtype: 'textfield',
-                            width: 310,
+                            width: 320,
                             labelWidth: 70,
                             readOnly: true,
                             margin: '0 0 2 10',
-                            fieldLabel: '<b>Merk / Tipe</b>',
-                            itemId: 'MsKendaraanKeterangan',
+                            fieldLabel: '<b>Keterangan</b>',
+                            itemId: 'tx_ketKendaraan',
                         },
                     ]
                 },
@@ -88,12 +88,13 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                     text: '  Tambah   ',
                     iconCls: 'icon-btn-add',
                     handler: function () {
-                        me.down('#MsKendaraanIDSeq').setValue('0');
-                        me.down('#MsKendaraanID').setValue('');
-                        me.down('#MsKendaraanKeterangan').setValue('');
-                        me.down('#MsKendaraanID').setReadOnly(false);
-                        me.down('#MsKendaraanKeterangan').setReadOnly(false);
-                        me.down('#MsKendaraanSimpan').setDisabled(false);
+                        me.down('#tx_idKendaraan').setValue('0');
+                        me.down('#tx_kodeKendaraan').setValue('');
+                        me.down('#tx_ketKendaraan').setValue('');
+                        
+                        me.down('#tx_kodeKendaraan').setReadOnly(false);
+                        me.down('#tx_ketKendaraan').setReadOnly(false);
+                        me.down('#btn_kendaraanSimpan').setDisabled(false);
                     }
                 },
                 {
@@ -103,7 +104,7 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                     width: 90,
                     margin: '0 0 2 5',
                     text: '  Koreksi   ',
-                    itemId: 'MsKendaraanUpdate',
+                    itemId: 'btn_kendaraanUpdate',
                     iconCls: 'icon-btn-update',
                     handler: function () {
                         var sel = me.getSelectionModel().getSelection();
@@ -111,14 +112,15 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                             Ext.Msg.alert('Warning', 'Pilih Data Terlebih Dahulu');
                             return;
                         }
-                        me.down('#MsKendaraanIDSeq').setValue(sel[0].get('ID'));
-                        me.down('#MsKendaraanID').setValue(sel[0].get('Kode'));
-                        me.down('#MsKendaraanKeterangan').setValue(sel[0].get('Keterangan'));
-                        me.down('#MsKendaraanID').setReadOnly(false);
-                        me.down('#MsKendaraanKeterangan').setReadOnly(false);
-                        me.down('#MsKendaraanSimpan').setDisabled(false);
-                        me.down('#MsKendaraanUpdate').setDisabled(true);
-                        me.down('#MsKendaraanHapus').setDisabled(true);
+                        me.down('#tx_idKendaraan').setValue(sel[0].get('ID'));
+                        me.down('#tx_kodeKendaraan').setValue(sel[0].get('Kode'));
+                        me.down('#tx_ketKendaraan').setValue(sel[0].get('Keterangan'));
+                        
+                        me.down('#tx_kodeKendaraan').setReadOnly(false);
+                        me.down('#tx_ketKendaraan').setReadOnly(false);
+                        me.down('#btn_kendaraanSimpan').setDisabled(false);
+                        me.down('#btn_kendaraanUpdate').setDisabled(true);
+                        me.down('#btn_kendaraanHapus').setDisabled(true);
                     }
                 },
                 {
@@ -128,7 +130,7 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                     width: 90,
                     margin: '0 0 2 5',
                     text: '  Hapus   ',
-                    itemId: 'MsKendaraanHapus',
+                    itemId: 'btn_kendaraanHapus',
                     iconCls: 'icon-btn-delete',
                     handler: function () {
                         var sel = me.getSelectionModel().getSelection();
@@ -139,7 +141,7 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                         Ext.MessageBox.confirm('Confirm', 'Apakah Yakin data akan di hapus', function (btn, text) {
                             if (btn === 'yes') {
                                 Ext.Ajax.request({
-                                    url: BASE_PATH + 'datamaster/hapus_kendaraan',
+                                    url: BASE_PATH + 'kendaraan/deleteKendaraan',
                                     method: 'POST',
                                     params: {
                                         id: sel[0].get('ID'),
@@ -185,16 +187,16 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                     disabled: true,
                     margin: '0 0 2 5',
                     text: '  Simpan   ',
-                    itemId: 'MsKendaraanSimpan',
+                    itemId: 'btn_kendaraanSimpan',
                     iconCls: 'icon-btn-save',
                     handler: function () {
                         Ext.Ajax.request({
-                            url: BASE_PATH + 'datamaster/simpan_kendaraan',
+                            url: BASE_PATH + 'kendaraan/saveKendaraan',
                             method: 'POST',
                             params: {
-                                id: me.down('#MsKendaraanIDSeq').getValue(),
-                                kode: me.down('#MsKendaraanID').getValue(),
-                                keterangan: me.down('#MsKendaraanKeterangan').getValue(),
+                                id: me.down('#tx_idKendaraan').getValue(),
+                                kode: me.down('#tx_kodeKendaraan').getValue(),
+                                keterangan: me.down('#tx_ketKendaraan').getValue(),
                             },
                             scope: this,
                             callback: function (options, success, response) {
@@ -235,8 +237,8 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    width: 260,
-                    text: 'Merk / Tipe',
+                    width: 300,
+                    text: 'Merk/ Tipe',
                     dataIndex: 'Keterangan',
                 },
             ],
@@ -247,14 +249,14 @@ Ext.define('SIForLaP.view.mskendaraan.MsKendaraanGrid', {
         me.callParent(arguments);
     },
     resettombol: function () {
-        this.down('#MsKendaraanIDSeq').setValue('0');
-        this.down('#MsKendaraanID').setValue('');
-        this.down('#MsKendaraanKeterangan').setValue('');
-        this.down('#MsKendaraanID').setReadOnly(true);
-        this.down('#MsKendaraanKeterangan').setReadOnly(true);
-        this.down('#MsKendaraanSimpan').setDisabled(true);
-        this.down('#MsKendaraanUpdate').setDisabled(false);
-        this.down('#MsKendaraanHapus').setDisabled(false);
+        this.down('#tx_idKendaraan').setValue('0');
+        this.down('#tx_kodeKendaraan').setValue('');
+        this.down('#tx_ketKendaraan').setValue('');
+        this.down('#tx_kodeKendaraan').setReadOnly(true);
+        this.down('#tx_ketKendaraan').setReadOnly(true);
+        this.down('#btn_kendaraanSimpan').setDisabled(true);
+        this.down('#btn_kendaraanUpdate').setDisabled(false);
+        this.down('#btn_kendaraanHapus').setDisabled(false);
     },
 }
 );
