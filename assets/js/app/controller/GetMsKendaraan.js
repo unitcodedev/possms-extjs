@@ -1,7 +1,3 @@
-/**
- * @author Parahita2015
- **/
-
 Ext.define('SIForLaP.controller.GetMsKendaraan', {
     extend: 'Ext.app.Controller',
     models: [
@@ -12,7 +8,6 @@ Ext.define('SIForLaP.controller.GetMsKendaraan', {
     views: [
         'mskendaraan.GetMsKendaraan',
         'mskendaraan.MsKendaraanGrid',
-        'mskendaraan.MsKendaraanAddWin',
     ],
     refs: [
     ],
@@ -22,6 +17,3 @@ Ext.define('SIForLaP.controller.GetMsKendaraan', {
         )
     },
 });
-
-/* End of file SystemMenu.js */
-/* Location: ./assets/js/app/controller/SystemMenu.js */
