@@ -8,7 +8,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
     itemId: 'mssatuangrid',
     ui: 'blue-panel',
     autoScroll: true,
-    cls: 'grid_penjualan',
+    cls: 'grid_satuan',
     store: 'mssatuan.MsSatuanStore',
     columnLines: true,
 //    forceFit: true,
@@ -41,7 +41,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                             value: '0',
                             fieldLabel: '<b>ID</b>',
                             margin: '0 0 2 10',
-                            itemId: 'MsSatuanIDSeq',
+                            itemId: 'tx_idSatuan',
                         },
                         {
                             xtype: 'textfield',
@@ -50,7 +50,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                             readOnly: true,
                             fieldLabel: '<b>KODE</b>',
                             margin: '0 0 2 10',
-                            itemId: 'MsSatuanID',
+                            itemId: 'tx_kodeSatuan',
                         },
                         {
                             xtype: 'textfield',
@@ -59,7 +59,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                             readOnly: true,
                             margin: '0 0 2 10',
                             fieldLabel: '<b>Keterangan</b>',
-                            itemId: 'MsSatuanKeterangan',
+                            itemId: 'tx_ketSatuan',
                         },
                     ]
                 },
@@ -88,12 +88,13 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                     text: '  Tambah   ',
                     iconCls: 'icon-btn-add',
                     handler: function () {
-                        me.down('#MsSatuanIDSeq').setValue('0');
-                        me.down('#MsSatuanID').setValue('');
-                        me.down('#MsSatuanKeterangan').setValue('');
-                        me.down('#MsSatuanID').setReadOnly(false);
-                        me.down('#MsSatuanKeterangan').setReadOnly(false);
-                        me.down('#MsSatuanSimpan').setDisabled(false);
+                        me.down('#tx_idSatuan').setValue('0');
+                        me.down('#tx_kodeSatuan').setValue('');
+                        me.down('#tx_ketSatuan').setValue('');
+                        
+                        me.down('#tx_kodeSatuan').setReadOnly(false);
+                        me.down('#tx_ketSatuan').setReadOnly(false);
+                        me.down('#btn_satuanSimpan').setDisabled(false);
                     }
                 },
                 {
@@ -103,7 +104,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                     width: 90,
                     margin: '0 0 2 5',
                     text: '  Koreksi   ',
-                    itemId: 'MsSatuanUpdate',
+                    itemId: 'btn_satuanUpdate',
                     iconCls: 'icon-btn-update',
                     handler: function () {
                         var sel = me.getSelectionModel().getSelection();
@@ -111,14 +112,15 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                             Ext.Msg.alert('Warning', 'Pilih Data Terlebih Dahulu');
                             return;
                         }
-                        me.down('#MsSatuanIDSeq').setValue(sel[0].get('ID'));
-                        me.down('#MsSatuanID').setValue(sel[0].get('Kode'));
-                        me.down('#MsSatuanKeterangan').setValue(sel[0].get('Keterangan'));
-                        me.down('#MsSatuanID').setReadOnly(false);
-                        me.down('#MsSatuanKeterangan').setReadOnly(false);
-                        me.down('#MsSatuanSimpan').setDisabled(false);
-                        me.down('#MsSatuanUpdate').setDisabled(true);
-                        me.down('#MsSatuanHapus').setDisabled(true);
+                        me.down('#tx_idSatuan').setValue(sel[0].get('ID'));
+                        me.down('#tx_kodeSatuan').setValue(sel[0].get('Kode'));
+                        me.down('#tx_ketSatuan').setValue(sel[0].get('Keterangan'));
+                        
+                        me.down('#tx_kodeSatuan').setReadOnly(false);
+                        me.down('#tx_ketSatuan').setReadOnly(false);
+                        me.down('#btn_satuanSimpan').setDisabled(false);
+                        me.down('#btn_satuanUpdate').setDisabled(true);
+                        me.down('#btn_satuanHapus').setDisabled(true);
                     }
                 },
                 {
@@ -128,7 +130,7 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                     width: 90,
                     margin: '0 0 2 5',
                     text: '  Hapus   ',
-                    itemId: 'MsSatuanHapus',
+                    itemId: 'btn_satuanHapus',
                     iconCls: 'icon-btn-delete',
                     handler: function () {
                         var sel = me.getSelectionModel().getSelection();
@@ -185,16 +187,16 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                     disabled: true,
                     margin: '0 0 2 5',
                     text: '  Simpan   ',
-                    itemId: 'MsSatuanSimpan',
+                    itemId: 'btn_satuanSimpan',
                     iconCls: 'icon-btn-save',
                     handler: function () {
                         Ext.Ajax.request({
                             url: BASE_PATH + 'satuan/saveSatuan',
                             method: 'POST',
                             params: {
-                                id: me.down('#MsSatuanIDSeq').getValue(),
-                                kode: me.down('#MsSatuanID').getValue(),
-                                keterangan: me.down('#MsSatuanKeterangan').getValue(),
+                                id: me.down('#tx_idSatuan').getValue(),
+                                kode: me.down('#tx_kodeSatuan').getValue(),
+                                keterangan: me.down('#tx_ketSatuan').getValue(),
                             },
                             scope: this,
                             callback: function (options, success, response) {
@@ -247,14 +249,14 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
         me.callParent(arguments);
     },
     resettombol: function () {
-        this.down('#MsSatuanIDSeq').setValue('0');
-        this.down('#MsSatuanID').setValue('');
-        this.down('#MsSatuanKeterangan').setValue('');
-        this.down('#MsSatuanID').setReadOnly(true);
-        this.down('#MsSatuanKeterangan').setReadOnly(true);
-        this.down('#MsSatuanSimpan').setDisabled(true);
-        this.down('#MsSatuanUpdate').setDisabled(false);
-        this.down('#MsSatuanHapus').setDisabled(false);
+        this.down('#tx_idSatuan').setValue('0');
+        this.down('#tx_kodeSatuan').setValue('');
+        this.down('#tx_ketSatuan').setValue('');
+        this.down('#tx_kodeSatuan').setReadOnly(true);
+        this.down('#tx_ketSatuan').setReadOnly(true);
+        this.down('#btn_satuanSimpan').setDisabled(true);
+        this.down('#btn_satuanUpdate').setDisabled(false);
+        this.down('#btn_satuanHapus').setDisabled(false);
     },
 }
 );
