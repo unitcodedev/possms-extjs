@@ -184,6 +184,47 @@ class Datamaster extends Auth_Controller {
             echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => $msg));
         }
     }
-    
+// Top
+    public function list_top() {
+        $result = $this->query->get_query_grid("SELECT * FROM tpo");
+        if ($result != NULL) {
+            echo json_encode(array('success' => 'true', 'data' => $result, 'title' => 'Info', 'msg' => 'List All Cabang'));
+        } else {
+            echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => 'Tidak ada data'));
+        }
+    }
+
+    public function hapus_top() {
+        $this->db->trans_start();
+        $this->db->delete('tpo', array('ID' => $this->input->post('id')));
+        $this->db->trans_complete();
+        if (!$this->db->trans_status()) {
+            echo json_encode(array('success' => 'false', 'data' => NULL, 'title' => 'Info', 'msg' => $this->db->error()));
+        } else {
+            echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => 'Proses Hapus Berhasil'));
+        }
+    }
+
+    public function simpan_top() {
+        $this->db->trans_start();
+        $arr['Tempo'] = $this->input->post('kode');
+        $arr['Keterangan'] = $this->input->post('keterangan');
+        if ($this->input->post('id') == '0') {
+            // Insert
+            $this->db->insert('tpo', $arr);
+            $msg = "Proses Simpan Berhasil";
+        } else {
+            // Update
+            $this->db->update('tpo', $arr, array('ID' => $this->input->post('id')));
+            log_message('error', $this->db->last_query());
+            $msg = "Proses Update Berhasil";
+        }
+        $this->db->trans_complete();
+        if (!$this->db->trans_status()) {
+            echo json_encode(array('success' => 'false', 'data' => NULL, 'title' => 'Info', 'msg' => $this->db->error()));
+        } else {
+            echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => $msg));
+        }
+    }
 
 }
