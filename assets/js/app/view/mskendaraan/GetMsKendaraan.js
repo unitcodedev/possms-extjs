@@ -9,13 +9,13 @@ Ext.define('SIForLaP.view.mskendaraan.GetMsKendaraan', {
     bodyPadding: '2 0 0 0',
     border: false,
     layout: 'border',
-    title: 'Master Barang',
+    title: 'Master Kendaraan',
     defaults: {
         split: true
     },
     initComponent: function () {
         var me = this;
-        this.setTitle('Master Jenis Usaha');
+        this.setTitle('Master Kendaraan');
         Ext.applyIf(me, {
             tbar: [
             ],
@@ -34,9 +34,9 @@ Ext.define('SIForLaP.view.mskendaraan.GetMsKendaraan', {
                                 {
                                     region: 'west',
                                     xtype: 'mskendaraan.mskendaraangrid',
-                                    width: 425,
+                                    width: 465,
                                     height: 450,
-                                    title: 'Master Jenis Usaha',
+                                    title: 'Master Kendaraan',
                                     margin: '1 4 4 4',
                                     ui: 'blue-panel',
                                     split: true,
@@ -49,7 +49,7 @@ Ext.define('SIForLaP.view.mskendaraan.GetMsKendaraan', {
                 },
 //                {
 //                    region: 'center',
-//                    xtype: 'mskendaraan.mskendaraangrid',
+//                    xtype: 'msjenisusaha.msjenisusahagrid',
 //                    layout: 'fit',
 //                    title: 'Master Customer',
 //                    minWidth: 400,
@@ -58,7 +58,7 @@ Ext.define('SIForLaP.view.mskendaraan.GetMsKendaraan', {
 //                },
 //                {
 //                    region: 'east',
-////                    xtype: 'mskendaraan.mskendaraangrid',
+////                    xtype: 'msjenisusaha.msjenisusahagrid',
 //                    layout: 'fit',
 ////                    title: 'Master Customer',
 //                    minWidth: 400,
