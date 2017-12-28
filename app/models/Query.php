@@ -188,6 +188,13 @@ class Query extends CI_Model {
         return $retval;
     }
 
+    function get_now_mysql() {
+        $sql = "Select now() as tgl";
+        $qry = $this->db->query($sql);
+        $retval = $qry->row()->tgl;
+        return $retval;
+    }
+
     function last_id($table) {
         $sql = "SELECT AUTO_INCREMENT as akhir FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'hris_db' AND TABLE_NAME = '$table'";
         $qry = $this->db->query($sql);
