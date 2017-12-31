@@ -4,6 +4,12 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class M_satuan extends CI_Model {
+	
+    public function select_all() {
+		$sql = "SELECT * FROM satuan";
+		$data = $this->db->query($sql);
+		return $data->result();
+	}
     
     public function insert($data) {
 		$sql = "INSERT INTO satuan(Kode, Keterangan)
