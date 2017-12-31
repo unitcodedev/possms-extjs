@@ -4,6 +4,12 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class M_kendaraan extends CI_Model {
+	
+    public function select_all() {
+		$sql = "SELECT * FROM kendaraan";
+		$data = $this->db->query($sql);
+		return $data->result();
+	}
 
     public function insert($data) {
 		$sql = "INSERT INTO kendaraan(Kode, Keterangan)
