@@ -12,7 +12,7 @@ class Satuan extends Auth_Controller {
     }
 
     public function listSatuan() {
-        $result = $this->query->get_query_grid("SELECT * FROM satuan");
+        $result = $this->M_satuan->select_all();
         if ($result != NULL) {
             echo json_encode(array('success' => 'true', 'data' => $result, 'title' => 'Info', 'msg' => 'List All Cabang'));
         } else {
