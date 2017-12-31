@@ -12,7 +12,7 @@ class Kendaraan extends Auth_Controller {
     }
 
     public function listKendaraan() {
-        $result = $this->query->get_query_grid("SELECT * FROM kendaraan");
+        $result = $this->M_kendaraan->select_all();
         if ($result != NULL) {
             echo json_encode(array('success' => 'true', 'data' => $result, 'title' => 'Info', 'msg' => 'List All Cabang'));
         } else {
