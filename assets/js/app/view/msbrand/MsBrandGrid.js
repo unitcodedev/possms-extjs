@@ -29,6 +29,11 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
             },
             tbar: [
                 {
+                    xtype: 'fieldset',
+                    margin: '5 7 5 5',
+                    width: '100%',
+                    items: [
+                        {
                     xtype: 'fieldcontainer',
                     layout: 'vbox',
                     items: [
@@ -43,6 +48,72 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
                             margin: '0 0 2 10',
                             itemId: 'tx_idBrand',
                         },
+                        {
+                            xtype: "combobox",
+                                    name: "supplier",
+                                    width: 310,
+                                    labelWidth: 70,
+                                    fieldLabel: '<b>Supplier</b>',
+                                    margin: '0 0 2 10',
+                                    emptyText: "- Pilih Supplier -",
+                                    valueField: "Kode",
+                                    displayField: "Nama",
+                                    queryMode: "remote",
+                                    triggerAction: 'all',
+                                    matchFieldWidth: false,
+                                    enableKeyEvents: true,
+                                    itemId: 'cb_supplier',
+                                    listConfig: {
+                                                loadingText: 'Searching...',
+                                                emptyText: 'Data Tidak Ada.',
+                                                getInnerTpl: function () {
+                                                    return '<div class="search-item">' +
+                                                            '<b>{Kode} - {Nama} </b>' +
+                                                            '<br/></div>';
+                                                }
+                                            },
+                                    store: {
+                                        autoLoad: true, 
+                                        remoteFilter: true,
+                                        fields: ['Kode', 'Nama'],
+                                         proxy: {
+                                            success: true,
+                                            type: 'ajax',
+                                            url: BASE_URL + 'Brand/getNameSupplier',
+                                            reader: {root: 'data', type: 'json'}
+                                        },
+                                    },
+                                    listeners: {
+                                                beforequery: function (record) {
+                                                    var store = this.store;
+                                                    var filterCollection = [];
+                                                    var statusFilter = new Ext.util.Filter({
+                                                        property: 'filter',
+                                                        value: this.getValue()
+                                                    });
+                                                    filterCollection.push(statusFilter);
+                                                    store.clearFilter(true);
+                                                    store.filter(filterCollection);
+
+                                                },
+                                                select: function (cmb, rec, opt) {
+                                            me.down('#cb_supplier').setValue(rec[0].data.Nama);
+                                         me.down('#tx_kodeSupplier').setValue(rec[0].data.Kode);
+
+                                                },
+                                            
+                                            },
+                        },
+                        
+                        {
+                            xtype: 'textfield',
+                            width: 50,
+                            readOnly: true,
+                            fieldLabel: '',
+                            margin: '-23 0 0 322',
+                            itemId: 'tx_kodeSupplier',
+                        },
+
                         {
                             xtype: 'textfield',
                             width: 150,
@@ -62,6 +133,8 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
                             itemId: 'tx_ketBrand',
                         },
                     ]
+                        },
+                        ],
                 },
             ],
             bbar: [
@@ -94,6 +167,7 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
                         
                         me.down('#tx_kodeBrand').setReadOnly(false);
                         me.down('#tx_ketBrand').setReadOnly(false);
+                        me.down('#cb_supplier').setReadOnly(false);
                         me.down('#btn_brandSimpan').setDisabled(false);
                     }
                 },
@@ -113,9 +187,12 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
                             return;
                         }
                         me.down('#tx_idBrand').setValue(sel[0].get('ID'));
+                        me.down('#cb_supplier').setValue(sel[0].get('Supplier'));
+                        me.down('#tx_kodeSupplier').setValue(sel[0].get('Supplier'));
                         me.down('#tx_kodeBrand').setValue(sel[0].get('Kode'));
                         me.down('#tx_ketBrand').setValue(sel[0].get('Keterangan'));
                         
+                        me.down('#cb_supplier').setReadOnly(false);
                         me.down('#tx_kodeBrand').setReadOnly(false);
                         me.down('#tx_ketBrand').setReadOnly(false);
                         me.down('#btn_brandSimpan').setDisabled(false);
@@ -195,6 +272,7 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
                             method: 'POST',
                             params: {
                                 id: me.down('#tx_idBrand').getValue(),
+                                supplier: me.down('#tx_kodeSupplier').getValue(),
                                 kode: me.down('#tx_kodeBrand').getValue(),
                                 keterangan: me.down('#tx_ketBrand').getValue(),
                             },
@@ -258,6 +336,7 @@ Ext.define('SIForLaP.view.msbrand.MsBrandGrid', {
     },
     resettombol: function () {
         this.down('#tx_idBrand').setValue('0');
+        this.down('#cb_supplier').setValue('');
         this.down('#tx_kodeBrand').setValue('');
         this.down('#tx_ketBrand').setValue('');
         
