@@ -29,6 +29,11 @@ Ext.define('SIForLaP.view.msgudang.MsGudangGrid', {
             },
             tbar: [
                 {
+                    xtype: 'fieldset',
+                    margin: '5 7 5 5',
+                    width: '100%',
+                    items: [
+                        {
                     xtype: 'fieldcontainer',
                     layout: 'vbox',
                     items: [
@@ -88,6 +93,8 @@ Ext.define('SIForLaP.view.msgudang.MsGudangGrid', {
                             })
                         },
                     ]
+                        },
+                        ],
                 },
             ],
             bbar: [
