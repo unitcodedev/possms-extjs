@@ -29,6 +29,11 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
             },
             tbar: [
                 {
+                    xtype: 'fieldset',
+                    margin: '5 7 5 5',
+                    width: '100%',
+                    items: [
+                        {
                     xtype: 'fieldcontainer',
                     layout: 'vbox',
                     items: [
@@ -62,6 +67,8 @@ Ext.define('SIForLaP.view.mssatuan.MsSatuanGrid', {
                             itemId: 'tx_ketSatuan',
                         },
                     ]
+                        },
+                        ],
                 },
             ],
             bbar: [
