@@ -25,6 +25,11 @@ Ext.define('SIForLaP.view.mssalesman.MsSalesmanGrid', {
             },
             tbar: [
                 {
+                    xtype: 'fieldset',
+                    margin: '5 7 5 5',
+                    width: '100%',
+                    items: [
+                        {
                     xtype: 'fieldcontainer',
                     layout: 'vbox',
                     items: [
@@ -67,6 +72,8 @@ Ext.define('SIForLaP.view.mssalesman.MsSalesmanGrid', {
                             itemId: 'tx_almtSalesman',
                         },
                     ]
+                        },
+                        ],
                 },
             ],
             bbar: [
