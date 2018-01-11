@@ -34,6 +34,17 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                         {
                             xtype: 'textfield',
                             width: 150,
+                            labelWidth: 70,
+                            readOnly: true,
+                            hidden: true,
+                            value: '0',
+                            fieldLabel: '<b>Ins</b>',
+                            margin: '0 0 2 10',
+                            itemId: 'tx_ins',
+                        },
+                        {
+                            xtype: 'textfield',
+                            width: 150,
                             labelWidth: 85,
                             readOnly: true,
                             hidden: true,
@@ -159,11 +170,11 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                                                 select: function (cmb, rec, opt) {
                                     me.down('#cb_brand').setValue(rec[0].data.Keterangan);
                                     me.down('#tx_kodeBrand').setValue(rec[0].data.Kode);   
-                                                    var i=1;
-                                                    if(rec[0].data.Kode == 11721) {
-//                                                        i++;
-                          me.down('#tx_kodeBarang').setValue(rec[0].data.Kode+"00"+i);
-                                                    }
+//                                                    var i=1;
+//                                                    if(rec[0].data.Kode == 11121) {
+////                                                        i++;
+//                         me.down('#tx_kodeBarang').setValue(rec[0].data.Kode+"00"+i);
+//                                                    }
 
                                                 },
                                             
@@ -182,6 +193,7 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                         {
                             xtype: 'textfield',
                             width: 250,
+                            hidden: true,
                             labelWidth: 85,
                             readOnly: true,
                             fieldLabel: '<b>KODE</b>',
@@ -420,15 +432,22 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                     text: '  Tambah   ',
                     iconCls: 'icon-btn-add',
                     handler: function () {
-//                        me.down('#tx_idStock').setValue('0');
+                        me.down('#tx_ins').setValue('0');
                         me.down('#tx_kodeSupplier').setValue('');
                         me.down('#tx_kodeBrand').setValue('');
                         me.down('#tx_kodeBarang').setValue('');
                         me.down('#tx_nama').setValue('');
                         me.down('#tx_satuan2').setValue('');
                         me.down('#tx_satuan3').setValue('');
+                        me.down('#cb_supplier').setValue('');
+                        me.down('#cb_brand').setValue('');
+                        me.down('#cb_satuan1').setValue('');
+                        me.down('#cb_satuan2').setValue('');
+                        me.down('#cb_satuan3').setValue('');
+                        me.down('#l_satuan1').setText('[satuan1]');
+                        me.down('#l_satuan2').setText('[satuan2]');
                         
-                        me.down('#tx_kodeBarang').setReadOnly(false);
+                        me.down('#tx_kodeBarang').setReadOnly(true);
                         me.down('#tx_nama').setReadOnly(false);
                         me.down('#tx_satuan2').setReadOnly(false);
                         me.down('#tx_satuan3').setReadOnly(false);
@@ -450,7 +469,7 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                             Ext.Msg.alert('Warning', 'Pilih Data Terlebih Dahulu');
                             return;
                         }
-//                        me.down('#tx_idStock').setValue(sel[0].get('ID'));
+                        me.down('#tx_ins').setValue('1');
                         me.down('#cb_supplier').setValue(sel[0].get('Golongan'));
                         me.down('#tx_kodeSupplier').setValue(sel[0].get('Golongan'));
                         me.down('#cb_brand').setValue(sel[0].get('Merk'));
@@ -546,7 +565,7 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
                             url: BASE_PATH + 'stock/saveStock',
                             method: 'POST',
                             params: {
-//                                id: me.down('#tx_idStock').getValue(),
+                                ins: me.down('#tx_ins').getValue(),
                                 supplier: me.down('#tx_kodeSupplier').getValue(),
                                 brand: me.down('#tx_kodeBrand').getValue(),
                                 kode: me.down('#tx_kodeBarang').getValue(),
@@ -667,11 +686,25 @@ Ext.define('SIForLaP.view.msstock.MsStockGrid', {
         me.callParent(arguments);
     },
     resettombol: function () {
-        this.down('#tx_idStock').setValue('0');
+        this.down('#tx_ins').setValue('0');
+        this.down('#tx_kodeSupplier').setValue('');
+        this.down('#tx_kodeBrand').setValue('');
         this.down('#tx_kodeBarang').setValue('');
-        this.down('#tx_ketStock').setValue('');
+        this.down('#tx_nama').setValue('');
+        this.down('#tx_satuan2').setValue('');
+        this.down('#tx_satuan3').setValue('');
+        this.down('#cb_supplier').setValue('');
+        this.down('#cb_brand').setValue('');               this.down('#cb_satuan1').setValue('');
+        this.down('#cb_satuan2').setValue('');
+        this.down('#cb_satuan3').setValue('');
+        this.down('#l_satuan1').setText('[satuan1]');
+        this.down('#l_satuan2').setText('[satuan2]');
+           
         this.down('#tx_kodeBarang').setReadOnly(true);
-        this.down('#tx_ketStock').setReadOnly(true);
+        this.down('#tx_nama').setReadOnly(true);
+        this.down('#tx_satuan2').setReadOnly(true);
+        this.down('#tx_satuan3').setReadOnly(true);
+        
         this.down('#btn_stockSimpan').setDisabled(true);
         this.down('#btn_stockUpdate').setDisabled(false);
         this.down('#btn_stockHapus').setDisabled(false);
