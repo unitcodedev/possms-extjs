@@ -38,21 +38,39 @@ class Stock extends Auth_Controller {
     public function saveStock() {
         $this->db->trans_start();
         $data = $this->input->post();
-//        if ($this->input->post('id') == '0') {
-            $this->M_stock->insert($data);
+        $kdBrand = $this->input->post('brand');
+        
+        $kode = $this->getKode($kdBrand);
+        
+        if ($this->input->post('ins') == '0') {
+            $this->M_stock->insert($data, $kode);
             $msg = "Proses Simpan Berhasil";
-//        } else {
-            // Update
-//            $this->M_stock->update($data);
-//            log_message('error', $this->db->last_query());
-//            $msg = "Proses Update Berhasil";
-//        }
+        } else {
+            $this->M_stock->update($data);
+            log_message('error', $this->db->last_query());
+            $msg = "Proses Update Berhasil";
+        }
         $this->db->trans_complete();
         if (!$this->db->trans_status()) {
             echo json_encode(array('success' => 'false', 'data' => NULL, 'title' => 'Info', 'msg' => $this->db->error()));
         } else {
             echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => $msg));
         }
+    }
+    
+    public function getKode($kdBrand) {
+        $sql = "SELECT MAX(Kode) as kode FROM stock WHERE Merk = '$kdBrand'";
+        $cekKode = $this->query->get_query($sql);
+        $i = 1;
+        if ($cekKode->num_rows() != NULL) {
+            $urutan = substr($cekKode->row()->kode, -3);
+            $result = $kdBrand . "00" . ($urutan+$i);
+        } else {
+
+            $result = $kdBrand . "001";
+        }
+        return $result;
+        
     }
     
     public function getNameSupplier() {
@@ -81,15 +99,5 @@ class Stock extends Auth_Controller {
             echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => 'Tidak ada data'));
         }
     }
-    
-    public function getKodeBrand() {
-        $result = $this->M_stock->select_merk();
-        if ($result != NULL) {
-            echo json_encode(array('success' => 'true', 'data' => $result, 'title' => 'Info', 'msg' => 'List All Cabang'));
-        } else {
-            echo json_encode(array('success' => 'true', 'data' => NULL, 'title' => 'Info', 'msg' => 'Tidak ada data'));
-        }
-    }
-
     
 }
