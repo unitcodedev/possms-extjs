@@ -11,17 +11,16 @@ class M_stock extends CI_Model {
 		return $data->result();
 	}
     
-    public function insert($data) {
+    public function insert($data, $kode) {
 		$sql = "INSERT INTO stock(Kode, Nama, Merk, Golongan, Satuan1, Satuan2, JmlSat1, Satuan3, JmlSat2)
-		VALUES('" .$data['kode'] ."', '" .$data['nama'] ."', '" .$data['brand'] ."', '" .$data['supplier'] ."', '" .$data['satuan1'] ."', '" .$data['satuan2'] ."', '" .$data['jmlSatuan1'] ."', '" .$data['satuan3'] ."', '" .$data['jmlSatuan2'] ."')";
+		VALUES('" .$kode. "', '" .$data['nama'] ."', '" .$data['brand'] ."', '" .$data['supplier'] ."', '" .$data['satuan1'] ."', '" .$data['satuan2'] ."', '" .$data['jmlSatuan1'] ."', '" .$data['satuan3'] ."', '" .$data['jmlSatuan2'] ."')";
 		$this->db->query($sql);
 		return $this->db->affected_rows();
 	}
 
     public function update($data) {
-		$sql = "UPDATE stock SET Kode='" .$data['kode'] ."',
-        Keterangan= '" .$data['keterangan'] ."'
-        WHERE ID='" .$data['id'] ."'";
+		$sql = "UPDATE stock SET Nama='" .$data['nama'] ."', Merk='" .$data['brand'] ."', Golongan= '" .$data['supplier'] ."', Satuan1= '" .$data['satuan1'] ."', Satuan2= '" .$data['satuan2'] ."', JmlSat1= '" .$data['jmlSatuan1'] ."', Satuan3= '" .$data['satuan3'] ."', JmlSat2= '" .$data['jmlSatuan2'] ."'
+        WHERE Kode='" .$data['kode'] ."'";
 		$this->db->query($sql);
 		return $this->db->affected_rows();
 	}
